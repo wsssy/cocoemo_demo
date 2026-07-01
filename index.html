@@ -39,11 +39,14 @@
         <nav class="topbar">
           <div class="brand-block">
             <span class="eyebrow">ICML 2026</span>
-            <span class="brand-title">CoCoEmo: Composable and Controllable Human-Like Emotional TTS via Activation Steering</span>
+            <span class="brand-title">Audio samples for CoCoEmo</span>
           </div>
           <div class="topbar-links">
             <a href="#mixed">Mixed Emotion</a>
             <a href="#mismatch">Mismatch</a>
+            <a class="icon-link icon-link-text" href="https://icml.cc/virtual/2026/poster/60804" target="_blank" rel="noreferrer" aria-label="ICML venue page">
+              <span>ICML</span>
+            </a>
             <a class="icon-link" href="https://arxiv.org/abs/2602.03420" target="_blank" rel="noreferrer" aria-label="arXiv paper">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6.2 18.2 2 6h3.3l3 9.1L11.4 6h2.5l3.1 9.1L20 6H22l-4.3 12.2h-2L12.7 9l-3 9.2z"></path>
@@ -61,6 +64,20 @@
           <div class="hero-copy">
             <!-- <p class="hero-kicker">Activation steering for expressive speech synthesis</p> -->
             <h1>CoCoEmo: <u>Co</u>mposable and <u>Co</u>ntrollable Human-Like <u>Emo</u>tional TTS via Activation Steering</h1>
+            <p class="hero-authors">
+              Siyi Wang<sup>1</sup>,  Shihong Tan<sup>2</sup>,  Siyi Liu<sup>3</sup>,  Hong Jia<sup>4</sup>,  Gongping Huang<sup>2</sup>,  James Bailey<sup>5</sup>,  Ting Dang<sup>1</sup>
+            </p>
+            <p class="hero-affiliations">
+              <sup>1</sup>University of Melbourne 
+              <span aria-hidden="true">  </span>
+              <sup>2</sup>Wuhan University 
+              <span aria-hidden="true">  </span>
+              <sup>3</sup>HKUST(GZ) 
+              <span aria-hidden="true">  </span>
+              <sup>4</sup>University of Auckland 
+              <span aria-hidden="true">  </span>
+              <sup>5</sup>Monash University 
+            </p>
             <div class="hero-actions">
               <a class="button primary" href="#mixed">Listen to mixed emotions cases</a>
               <a class="button secondary" href="#mismatch">Listen to mismatch cases</a>
@@ -96,19 +113,16 @@ Our results demonstrate, for the first time, that emotional prosody and expressi
               <h3>Probe emotion structure</h3>
               <p>Measure linear discriminability of different emotional speeches in the latent space of TTS models with linear probes.</p>
             </div>
-            <div class="process-arrow" aria-hidden="true"></div>
             <div class="process-step">
               <span class="step-index">02</span>
               <h3>Extract steering vectors</h3>
               <p>Extract emotional steering vectors from discriminable latent representations with mean difference.</p>
             </div>
-            <div class="process-arrow" aria-hidden="true"></div>
             <div class="process-step">
               <span class="step-index">03</span>
               <h3>Compose multiple emotions</h3>
               <p>Mix multiple emotional steering vectors and scale them with alpha to control intensity.</p>
             </div>
-            <div class="process-arrow" aria-hidden="true"></div>
             <div class="process-step">
               <span class="step-index">04</span>
               <h3>Synthesize speech</h3>
