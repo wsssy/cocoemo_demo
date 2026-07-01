@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoCoEmo Demo</title>
+    <meta
+      name="description"
+      content="Demo website for CoCoEmo: composable and controllable human-like emotional TTS via activation steering."
+    />
+    <meta property="og:title" content="CoCoEmo Demo" />
+    <meta
+      property="og:description"
+      content="Demo website for CoCoEmo: composable and controllable human-like emotional TTS via activation steering."
+    />
+    <meta property="og:image" content="./figures/pipeline_web.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CoCoEmo Demo" />
+    <meta
+      name="twitter:description"
+      content="Demo website for CoCoEmo: composable and controllable human-like emotional TTS via activation steering."
+    />
+    <meta name="twitter:image" content="./figures/pipeline_web.png" />
+    <link rel="image_src" href="./figures/pipeline_web.png" />
+    <link rel="icon" type="image/png" href="./figures/sv_thumb.png?v=2" />
+    <link rel="shortcut icon" href="./figures/sv_thumb.png?v=2" />
+    <link rel="apple-touch-icon" href="./figures/sv_thumb.png?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand-block">
+            <span class="eyebrow">ICML 2026</span>
+            <span class="brand-title">CoCoEmo: Composable and Controllable Human-Like Emotional TTS via Activation Steering</span>
+          </div>
+          <div class="topbar-links">
+            <a href="#mixed">Mixed Emotion</a>
+            <a href="#mismatch">Mismatch</a>
+            <a class="icon-link" href="https://arxiv.org/abs/2602.03420" target="_blank" rel="noreferrer" aria-label="arXiv paper">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.2 18.2 2 6h3.3l3 9.1L11.4 6h2.5l3.1 9.1L20 6H22l-4.3 12.2h-2L12.7 9l-3 9.2z"></path>
+              </svg>
+            </a>
+            <a class="icon-link" href="https://github.com/wsssy/CoCoEmo" target="_blank" rel="noreferrer" aria-label="GitHub code">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2.2c-3.4.7-4.1-1.5-4.1-1.5-.6-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.6-1.3-5.6-6a4.7 4.7 0 0 1 1.2-3.2 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.2 11.2 0 0 1 6 0c2.2-1.5 3.3-1.2 3.3-1.2.5 1 .5 2.1.1 3.2a4.7 4.7 0 0 1 1.2 3.2c0 4.6-2.9 5.6-5.6 6 .4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"></path>
+              </svg>
+            </a>
+          </div>
+        </nav>
+
+        <section class="hero-grid">
+          <div class="hero-copy">
+            <!-- <p class="hero-kicker">Activation steering for expressive speech synthesis</p> -->
+            <h1>CoCoEmo: <u>Co</u>mposable and <u>Co</u>ntrollable Human-Like <u>Emo</u>tional TTS via Activation Steering</h1>
+            <div class="hero-actions">
+              <a class="button primary" href="#mixed">Listen to mixed emotions cases</a>
+              <a class="button secondary" href="#mismatch">Listen to mismatch cases</a>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-heading">
+            <span class="eyebrow">Abstract</span>
+            <h2>CoCoEmo</h2>
+          </div>
+          <div class="copy-card">
+            <p>
+              Emotional expression in human speech is nuanced and compositional, often involving multiple, sometimes conflicting, affective cues that may diverge from linguistic content. In contrast, most expressive text-to-speech (TTS) systems enforce a single utterance-level emotion, collapsing affective diversity and suppressing mixed or text–emotion–misaligned expression.
+While activation steering via latent direction vectors offers a promising solution, it remains unclear whether emotion representations are linearly steerable in TTS, where steering should be applied within hybrid TTS architectures, and how such complex emotion behaviors should be evaluated.
+This paper presents the first systematic analysis of activation steering for emotional control in hybrid TTS models, introducing a quantitative, controllable steering framework, and multi-rater evaluation protocols that enable composable mixed-emotion synthesis and reliable text–emotion mismatch synthesis.
+Our results demonstrate, for the first time, that emotional prosody and expressive variability are primarily synthesized by the TTS language module instead of the flow-matching module, and also provide a lightweight steering approach for generating natural, human-like emotional speech.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <span class="eyebrow">Method</span>
+            <h2>Main process</h2>
+          </div>
+          <div class="process-card">
+            <div class="process-step">
+              <span class="step-index">01</span>
+              <h3>Probe emotion structure</h3>
+              <p>Measure linear discriminability of different emotional speeches in the latent space of TTS models with linear probes.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-step">
+              <span class="step-index">02</span>
+              <h3>Extract steering vectors</h3>
+              <p>Extract emotional steering vectors from discriminable latent representations with mean difference.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-step">
+              <span class="step-index">03</span>
+              <h3>Compose multiple emotions</h3>
+              <p>Mix multiple emotional steering vectors and scale them with alpha to control intensity.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-step">
+              <span class="step-index">04</span>
+              <h3>Synthesize speech</h3>
+              <p>Apply steering at inference time, with or without model-specific natural-language emotion instructions.</p>
+            </div>
+          </div>
+          <figure class="figure-card">
+            <img src="./figures/pipeline_web.png" alt="CoCoEmo pipeline overview" />
+          </figure>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <span class="eyebrow">Contribution</span>
+            <h2>Main contributions</h2>
+          </div>
+          <div class="insight-grid">
+            <article class="insight-card">
+              <h3>1. Where to steer?</h3>
+              <p>
+                We analyze modular emotional TTS systems and identify which modules, layers, and operators
+                show the strongest emotion separability and steering potential.
+              </p>
+            </article>
+            <article class="insight-card">
+              <h3>2. How to steer?</h3>
+              <p>
+                We extract steering vectors that support quantitative mixed-emotion synthesis and
+                text-independent acoustic control, without retraining the backbone.
+              </p>
+            </article>
+            <article class="insight-card">
+              <h3>3. How to evaluate?</h3>
+              <p>
+                We introduce a multi-rater evaluation setup that measures mixed-emotion synthesis with
+                richer human annotations instead of single-label judgments.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="mixed" class="section">
+          <div class="section-heading">
+            <span class="eyebrow">Section A</span>
+            <h2>Mixed Emotion Cases</h2>
+            <!-- <p class="section-subtitle">
+              Five curated utterances from IEMOCAP with transcripts, target emotion mixtures,
+              and side-by-side comparisons across the requested model variants.
+            </p> -->
+          </div>
+          <div id="mixed-samples" class="sample-stack"></div>
+        </section>
+
+        <section id="mismatch" class="section">
+          <div class="section-heading">
+            <span class="eyebrow">Section B</span>
+            <h2>Mismatch Cases</h2>
+            <!-- <p class="section-subtitle">
+              One sample each for happy, sad, and angry. These rows focus on how steering behaves when
+              prompt semantics and target affect are intentionally hard to align.
+            </p> -->
+          </div>
+          <div id="mismatch-samples" class="sample-stack"></div>
+        </section>
+      </main>
+
+      <!-- <footer class="footer">
+        <p>
+          Dataset links point to the IEMOCAP landing page for now. Once licensed reference wav files are
+          downloaded locally, they can be dropped into the same layout without changing the page structure.
+        </p>
+      </footer> -->
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
